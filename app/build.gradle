@@ -1,10 +1,9 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply from: '../publish.gradle'
 
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "nurisezgin.com.connectivity"
         minSdkVersion 14
         targetSdkVersion 27
         versionCode 1
