@@ -15,7 +15,7 @@ singleton object.
     ConnectivityMonitor.getInstance()
         .registerAppContext(() -> appContext);
 ```
-* Add rx consumer for watching changes.
+* Attach rx consumer for watching changes.
 ```java
     ConnectivityMonitor.getInstance()
         .addWatcher(status -> {...});
