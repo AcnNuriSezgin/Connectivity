@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply from: '../publish.gradle'
 
 android {
     compileSdkVersion 27
@@ -16,12 +17,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.android.support:support-annotations:27.1.1'
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
+
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.google.truth:truth:0.42'
+    androidTestImplementation 'org.mockito:mockito-android:2.21.0'
+    androidTestImplementation 'com.google.errorprone:error_prone_parent:2.3.1'
+
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    implementation 'android.arch.work:work-runtime:1.0.0-alpha06'
+    implementation 'android.arch.work:work-firebase:1.0.0-alpha06'
 }

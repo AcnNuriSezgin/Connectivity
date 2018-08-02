@@ -1,6 +1,5 @@
 package nurisezgin.com.connectivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -9,9 +8,9 @@ import android.telephony.TelephonyManager;
 /**
  * Created by nuri on 02.08.2018
  */
-public final class Utils {
+public final class NetworkUtils {
 
-    NetworkInfo getActiveNetworkInfo(Context context) throws UnresolvedNetworkException {
+    public static NetworkInfo getActiveNetworkInfo(Context context) throws UnresolvedNetworkException {
         ConnectivityManager cm = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -25,23 +24,19 @@ public final class Utils {
         return networkInfo;
     }
 
-    boolean isConnected(Context context) throws UnresolvedNetworkException {
-        return getActiveNetworkInfo(context).isConnected();
-    }
-
-    boolean isConnectedOrConnecting(Context context) throws UnresolvedNetworkException {
+    public static boolean isConnectedOrConnecting(Context context) throws UnresolvedNetworkException {
         return getActiveNetworkInfo(context).isConnectedOrConnecting();
     }
 
-    boolean isMobileNetwork(Context context) throws UnresolvedNetworkException {
+    public static boolean isMobileNetwork(Context context) throws UnresolvedNetworkException {
         return getActiveNetworkInfo(context).getType() == ConnectivityManager.TYPE_MOBILE;
     }
 
-    boolean isWifiNetwork(Context context) throws UnresolvedNetworkException {
+    public static boolean isWifiNetwork(Context context) throws UnresolvedNetworkException {
         return getActiveNetworkInfo(context).getType() == ConnectivityManager.TYPE_WIFI;
     }
 
-    boolean isConnectionFast(Context context) throws UnresolvedNetworkException {
+    public static boolean isConnectionFast(Context context) throws UnresolvedNetworkException {
         if (isWifiNetwork(context)) {
             return true;
         }
