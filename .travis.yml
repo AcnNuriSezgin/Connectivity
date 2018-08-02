@@ -19,7 +19,7 @@ before_script:
 
 script: ./gradlew check connectedCheck --stacktrace
 
-after_success: ./gradlew install bintrayUpload
+after_success: ./gradlew bintrayUpload
 
 notifications:
   email: false
