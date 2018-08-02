@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName VERSION_NAME
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        multiDexEnabled = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -40,4 +40,5 @@ dependencies {
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
     implementation 'android.arch.work:work-runtime:1.0.0-alpha06'
     implementation 'android.arch.work:work-firebase:1.0.0-alpha06'
+    implementation 'com.android.support:multidex:1.0.3'
 }
